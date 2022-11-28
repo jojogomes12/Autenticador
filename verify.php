@@ -1,28 +1,28 @@
 <?php
 
-class Autenticar{
+class Authenticate{
 
-    public $email,$senha;
-function __construct($email,$senha){
+    public $email,$password;
+function __construct($email,$password){
 
 $this->email=$email;
-$this->senha=$senha;
+$this->password=$password;
 // Validar as caracteristicas da senha
-$Maiusculo = preg_match('@[A-Z]@', $senha);
-$numero    = preg_match('@[0-9]@', $senha);
-$CaracteresEspeciais = preg_match('@[^\w]@', $senha);
-$minimo= strlen($senha) < 8 ;
-$maximo= strlen($senha) > 25 ;
-if(!filter_var($email,FILTER_VALIDATE_EMAIL)||!$numero||!$CaracteresEspeciais||!$Maiusculo|| $minimo||$maximo){
-    $myfile = fopen("validar.txt", "w") or die("Unable to open file!");
-    $txt = " Dados :$email e $senha não são validos!!!!";
+$Upercase = preg_match('@[A-Z]@', $password);
+$number    = preg_match('@[0-9]@', $password);
+$SpecialChar = preg_match('@[^\w]@', $password);
+$minimum= strlen($password) < 8 ;
+$max strlen($password) > 25 ;
+if(!filter_var($email,FILTER_VALIDATE_EMAIL)||!$number||!$SpecialChar||!$Upercase|| $minimum||$max){
+    $myfile = fopen("check.txt", "w") or die("Unable to open file!");
+    $txt = " Dados :$email and $password are  not good!!!!";
     fwrite($myfile, $txt);
     fclose($myfile);
     
 }else{
 
-    $myfile = fopen("validar.txt", "w") or die("Unable to open file!");
-    $txt = " Dados :$email e $senha  São Validos !!";
+    $myfile = fopen("check.txt", "w") or die("Unable to open file!");
+    $txt = " Dados :$email e $senha  Are good!!";
     fwrite($myfile, $txt);
     fclose($myfile);
     
@@ -33,6 +33,6 @@ if(!filter_var($email,FILTER_VALIDATE_EMAIL)||!$numero||!$CaracteresEspeciais||!
 }
 }
 
-$teste= new Autenticar('joaoecarol39@gmail.com','Joaopedro12@');
+$test= new Authenticate('<your_email>','<your_password>');
 
 ?>
